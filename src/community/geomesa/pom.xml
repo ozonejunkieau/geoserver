@@ -46,14 +46,15 @@ application directory.
              we expect logging jars to be provided -->
         <!-- accumulo 1.4.3 is incompatible with a 1.5.6+ version of slf4j -->
         <!-- 1.7.x is for hadoop 2 and accumulo 1.5.x -->
-        <slf4j.version>1.7.5</slf4j.version>
+        <slf4j.version>1.7.25</slf4j.version>
         <scalalogging.version>1.1.0</scalalogging.version>
 
-        <avro.version>1.7.5</avro.version>
+        <avro.version>1.7.6</avro.version>
     </properties>
 
 
     <dependencies>
+
         <dependency>
             <groupId>org.locationtech.geomesa</groupId>
             <artifactId>geomesa-accumulo-datastore_2.11</artifactId>
@@ -133,6 +134,12 @@ application directory.
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
             <version>2.2.0</version>
+                              <exclusions>
+                                       <exclusion>
+                                              <groupId>org.apache.directory.jdbm</groupId>
+                                              <artifactId>apacheds-jdbm1</artifactId>
+                                      </exclusion>
+                              </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.wicket</groupId>
@@ -162,11 +169,11 @@ application directory.
             <artifactId>specs2_2.10</artifactId>
             <version>2.3.13</version>
         </dependency>
-        <dependency>
+        <!-- <dependency>
           <groupId>org.apache.accumulo</groupId>
           <artifactId>accumulo-test</artifactId>
           <version>${accumulo.version}</version>
-        </dependency>
+        </dependency> -->
     </dependencies>
 
  <repositories>
